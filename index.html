@@ -1,0 +1,537 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Blox Fruits Trading Hub</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#0f172a;
+color:white;
+text-align:center;
+margin:0;
+}
+
+.banner{
+background:black;
+padding:10px;
+}
+
+.banner img{
+width:100%;
+max-height:260px;
+object-fit:cover;
+border-radius:10px;
+}
+
+input,select{
+padding:10px;
+margin:10px;
+border-radius:6px;
+border:none;
+}
+
+button{
+padding:8px 12px;
+border:none;
+border-radius:6px;
+background:#22c55e;
+color:white;
+cursor:pointer;
+}
+
+button:hover{
+background:#16a34a;
+}
+
+table{
+margin:auto;
+border-collapse:collapse;
+width:90%;
+background:#1e293b;
+margin-top:20px;
+}
+
+th,td{
+border:1px solid #334155;
+padding:10px;
+}
+
+th{
+background:#020617;
+}
+
+img{
+width:40px;
+}
+
+.high{color:#22c55e;}
+.medium{color:#facc15;}
+.low{color:#ef4444;}
+
+.section{
+margin-top:50px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<div class="banner">
+
+<img src="https://tr.rbxcdn.com/180DAY-9b6f0ce2f1c3a63a9f3c9c9a09c3c4f6/768/432/Image/Webp/noFilter">
+
+<h1>Blox Fruits Trading Hub</h1>
+<p>Fruit Values • Trading Calculator • Community Voting</p>
+
+</div>
+
+
+<input id="search" placeholder="Search fruits..." onkeyup="searchFruit()">
+
+
+
+<table id="fruitTable">
+
+<tr>
+<th>Fruit</th>
+<th>Image</th>
+<th>Value</th>
+<th>Demand</th>
+<th>Votes</th>
+<th>Vote</th>
+</tr>
+
+
+<tr data-name="Dragon">
+<td>Dragon</td>
+<td><img src="https://via.placeholder.com/40"></td>
+<td class="value">150</td>
+<td class="high">High</td>
+<td class="votes">0</td>
+<td>
+<button onclick="vote(this,1)">👍</button>
+<button onclick="vote(this,-1)">👎</button>
+</td>
+</tr>
+
+<tr data-name="Leopard">
+<td>Leopard</td>
+<td><img src="https://via.placeholder.com/40"></td>
+<td class="value">140</td>
+<td class="high">High</td>
+<td class="votes">0</td>
+<td>
+<button onclick="vote(this,1)">👍</button>
+<button onclick="vote(this,-1)">👎</button>
+</td>
+</tr>
+
+<tr data-name="Kitsune">
+<td>Kitsune</td>
+<td><img src="https://via.placeholder.com/40"></td>
+<td class="value">135</td>
+<td class="high">High</td>
+<td class="votes">0</td>
+<td>
+<button onclick="vote(this,1)">👍</button>
+<button onclick="vote(this,-1)">👎</button>
+</td>
+</tr>
+
+<tr data-name="Dough">
+<td>Dough</td>
+<td><img src="https://via.placeholder.com/40"></td>
+<td class="value">120</td>
+<td class="high">High</td>
+<td class="votes">0</td>
+<td>
+<button onclick="vote(this,1)">👍</button>
+<button onclick="vote(this,-1)">👎</button>
+</td>
+</tr>
+
+<tr data-name="Spirit">
+<td>Spirit</td>
+<td><img src="https://via.placeholder.com/40"></td>
+<td class="value">110</td>
+<td class="high">High</td>
+<td class="votes">0</td>
+<td>
+<button onclick="vote(this,1)">👍</button>
+<button onclick="vote(this,-1)">👎</button>
+</td>
+</tr>
+
+<tr data-name="Venom">
+<td>Venom</td>
+<td><img src="https://via.placeholder.com/40"></td>
+<td class="value">105</td>
+<td class="high">High</td>
+<td class="votes">0</td>
+<td>
+<button onclick="vote(this,1)">👍</button>
+<button onclick="vote(this,-1)">👎</button>
+</td>
+</tr>
+
+<tr data-name="Control">
+<td>Control</td>
+<td><img src="https://via.placeholder.com/40"></td>
+<td class="value">95</td>
+<td class="medium">Medium</td>
+<td class="votes">0</td>
+<td>
+<button onclick="vote(this,1)">👍</button>
+<button onclick="vote(this,-1)">👎</button>
+</td>
+</tr>
+
+<tr data-name="Shadow">
+<td>Shadow</td>
+<td><img src="https://via.placeholder.com/40"></td>
+<td class="value">90</td>
+<td class="medium">Medium</td>
+<td class="votes">0</td>
+<td>
+<button onclick="vote(this,1)">👍</button>
+<button onclick="vote(this,-1)">👎</button>
+</td>
+</tr>
+
+<tr data-name="Portal">
+<td>Portal</td>
+<td><img src="https://via.placeholder.com/40"></td>
+<td class="value">85</td>
+<td class="medium">Medium</td>
+<td class="votes">0</td>
+<td>
+<button onclick="vote(this,1)">👍</button>
+<button onclick="vote(this,-1)">👎</button>
+</td>
+</tr>
+
+<tr data-name="Buddha">
+<td>Buddha</td>
+<td><img src="https://via.placeholder.com/40"></td>
+<td class="value">80</td>
+<td class="high">High</td>
+<td class="votes">0</td>
+<td>
+<button onclick="vote(this,1)">👍</button>
+<button onclick="vote(this,-1)">👎</button>
+</td>
+</tr>
+
+</table>
+
+
+
+<div class="section">
+
+<h2>🔥 Trending Fruits</h2>
+<ul id="trending"></ul>
+
+</div>
+
+
+
+<div class="section">
+
+<h2>⚖️ Fruit Comparison</h2>
+
+<select id="compare1"></select>
+<select id="compare2"></select>
+
+<button onclick="compare()">Compare</button>
+
+<p id="compareResult"></p>
+
+</div>
+
+
+
+<div class="section">
+
+<h2>💱 Trade Calculator</h2>
+
+<input id="t1" placeholder="Fruit value 1">
+<input id="t2" placeholder="Fruit value 2">
+
+<br>
+
+<input id="t3" placeholder="Fruit value 3">
+<input id="t4" placeholder="Fruit value 4">
+
+<br>
+
+<button onclick="checkTrade()">Check Trade</button>
+
+<p id="tradeResult"></p>
+
+</div>
+
+
+
+<div class="section">
+
+<h2>🏆 Value Leaderboard</h2>
+
+<ol id="leaderboard"></ol>
+
+</div>
+
+
+
+
+<script>
+
+function searchFruit(){
+
+let input=document.getElementById("search").value.toLowerCase()
+
+let rows=document.querySelectorAll("#fruitTable tr")
+
+rows.forEach((row,i)=>{
+
+if(i==0)return
+
+let fruit=row.children[0].innerText.toLowerCase()
+
+row.style.display=fruit.includes(input)?"":"none"
+
+})
+
+}
+
+
+
+function vote(button,val){
+
+let row=button.parentElement.parentElement
+
+let fruit=row.dataset.name
+
+let votes=row.querySelector(".votes")
+
+let current=parseInt(localStorage.getItem(fruit)||0)
+
+current+=val
+
+localStorage.setItem(fruit,current)
+
+votes.innerText=current
+
+updateTrending()
+
+}
+
+
+
+function loadVotes(){
+
+document.querySelectorAll("#fruitTable tr").forEach((row,i)=>{
+
+if(i==0)return
+
+let fruit=row.dataset.name
+
+let saved=localStorage.getItem(fruit)||0
+
+row.querySelector(".votes").innerText=saved
+
+})
+
+}
+
+
+
+function updateTrending(){
+
+let fruits=[]
+
+document.querySelectorAll("#fruitTable tr").forEach((row,i)=>{
+
+if(i==0)return
+
+let fruit=row.dataset.name
+
+let votes=parseInt(localStorage.getItem(fruit)||0)
+
+fruits.push({fruit,votes})
+
+})
+
+fruits.sort((a,b)=>b.votes-a.votes)
+
+let list=document.getElementById("trending")
+
+list.innerHTML=""
+
+fruits.slice(0,5).forEach(f=>{
+
+let li=document.createElement("li")
+
+li.innerText=f.fruit+" ("+f.votes+" votes)"
+
+list.appendChild(li)
+
+})
+
+}
+
+
+
+function populateCompare(){
+
+let s1=document.getElementById("compare1")
+
+let s2=document.getElementById("compare2")
+
+document.querySelectorAll("#fruitTable tr").forEach((row,i)=>{
+
+if(i==0)return
+
+let fruit=row.dataset.name
+
+let o1=document.createElement("option")
+
+let o2=document.createElement("option")
+
+o1.text=fruit
+
+o2.text=fruit
+
+s1.add(o1)
+
+s2.add(o2)
+
+})
+
+}
+
+
+
+function compare(){
+
+let f1=document.getElementById("compare1").value
+
+let f2=document.getElementById("compare2").value
+
+let v1=document.querySelector('[data-name="'+f1+'"] .value').innerText
+
+let v2=document.querySelector('[data-name="'+f2+'"] .value').innerText
+
+let r=document.getElementById("compareResult")
+
+if(v1>v2) r.innerText=f1+" is more valuable"
+
+else if(v2>v1) r.innerText=f2+" is more valuable"
+
+else r.innerText="Equal value"
+
+}
+
+
+
+function updateLeaderboard(){
+
+let fruits=[]
+
+document.querySelectorAll("#fruitTable tr").forEach((row,i)=>{
+
+if(i==0)return
+
+let fruit=row.dataset.name
+
+let value=parseInt(row.querySelector(".value").innerText)
+
+fruits.push({fruit,value})
+
+})
+
+fruits.sort((a,b)=>b.value-a.value)
+
+let board=document.getElementById("leaderboard")
+
+board.innerHTML=""
+
+fruits.forEach(f=>{
+
+let li=document.createElement("li")
+
+li.innerText=f.fruit+" - "+f.value
+
+board.appendChild(li)
+
+})
+
+}
+
+
+
+function checkTrade(){
+
+let a=parseInt(t1.value)||0
+
+let b=parseInt(t2.value)||0
+
+let c=parseInt(t3.value)||0
+
+let d=parseInt(t4.value)||0
+
+let r=document.getElementById("tradeResult")
+
+let side1=a+b
+
+let side2=c+d
+
+if(side1>side2) r.innerText="WIN TRADE"
+
+else if(side2>side1) r.innerText="LOSS TRADE"
+
+else r.innerText="FAIR TRADE"
+
+}
+
+
+
+function liveUpdates(){
+
+document.querySelectorAll(".value").forEach(v=>{
+
+let num=parseInt(v.innerText)
+
+let change=Math.floor(Math.random()*3)-1
+
+v.innerText=num+change
+
+})
+
+updateLeaderboard()
+
+}
+
+
+
+loadVotes()
+
+populateCompare()
+
+updateTrending()
+
+updateLeaderboard()
+
+setInterval(liveUpdates,30000)
+
+</script>
+
+</body>
+</html>
+```
